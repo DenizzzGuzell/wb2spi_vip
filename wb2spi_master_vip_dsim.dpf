@@ -1,0 +1,29 @@
+---
+# Note: The contents of this file are automatically generated.
+# Any changes made by hand may be overwritten.
+version: '0.2'
+work_dir: ./sim
+design_root_dir: ../rtl/verilog
+simulations:
+  - name: sim
+    options: >-
+      -top work.hdl_top -top work.hvl_top -uvm 1.2  -L design -L work  +acc+rwcb
+      -code-cov a -code-cov-scope-specs cov_spec -waves waves.vcd 
+      +UVM_TESTNAME=wb2spi_example_test +UVM_NO_RELNOTES -sv_seed random
+      +UVM_VERBOSITY=UVM_HIGH -timescale 1ns/1ns
+source_files:
+  - language: verilog
+    path: ./design_flist
+    library_name: design
+    options: +incdir+../rtl/verilog +acc+rwcb
+    file_list: relative-to-file
+  - language: verilog
+    path: ./verif_flist
+    library_name: work
+    options: >-
+      -uvm 1.2 +acc+rwcb
+      +incdir+../other+../agents/wb_agent+../agents/spi_agent+../environment+../other+../parameters+../scoreboard+../sequences+../testbench+../tests+../register_model
+      -timescale 1ns/1ns
+    file_list: relative-to-file
+library_search_paths:
+  - $STD_LIBS\ieee93
