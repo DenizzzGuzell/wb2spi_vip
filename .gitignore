@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+sim/*
+
+!sim/cov_spec
+!sim/design_flist
+!sim/verif_flist
+!sim/Coverage-results
