@@ -1,0 +1,3 @@
+`define ExpectedIdleControlRegValue {1'b0, 1'b0, 1'b0, configuration.spi_config.MSTR, configuration.spi_config.CPOL, configuration.spi_config.CPHA, configuration.spi_config.SPR}
+`define ExpectedStartControlRegValue {1'b0, 1'b1, 1'b0, configuration.spi_config.MSTR, configuration.spi_config.CPOL, configuration.spi_config.CPHA, configuration.spi_config.SPR}
+`define ExpectedExtensibleRegValue {6'b000000, configuration.spi_config.ESPR}
